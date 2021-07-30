@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="vanilla-tilt.min.js"></script>
+     <style>
+        *{margin: 0;
+        padding: 0;
+        box-sizing: border-box; transition: all .3s ease;}
+        /* Estilos generales */
+        body{background: #333;}
+        .dflex{display: flex; justify-content: center; align-items: center;}
+        .cards{width: 100%; height: 100vh; justify-content: space-around;}
+
+        /* Estilos de Tarjetas (General y Animaciones) */
+        .card{width: 25%; max-height: 80%; transform-style: preserve-3d; margin: 10px; padding: 30px; flex-direction: column; font-family: "Bebas Neue";position: relative;}
+        .card::before{content: ""; width: 100%; height: 100%; opacity: 0; z-index: -1; position: absolute;}
+
+        .card:nth-child(1)::before{background: center / cover url(img/img1.jpg);}
+        .card:nth-child(2)::before{background: center / cover url(img/img2.jpg);}
+        .card:nth-child(3)::before{background: center / cover url(img/img3.jpeg);}
+
+        .card:hover::before{content: ""; opacity: 0.2; border-radius: 3px;}
+        .card:hover{box-shadow: 0px 10px 16px -10px black;}
+
+        /* Estilos de elementos de las tarjetas (General y Animaciones) */
+        img{width: 100%; min-height: 50%; margin: 10px 0; border-radius: 3px; box-shadow: 0px 10px 16px -10px black; transform-style: preserve-3d;}
+        .card:hover img{transform: translate3d(0, 0, 50%); transform-style: preserve-3d;}
+
+        .name, .btn{transform: translate3d(0, 0, 50px); transform-style: preserve-3d; opacity: 0; position: relative; transition-duration: 0.5s;}
+
+        .name{color :#d8d8d8; bottom: 50px; opacity: 0;}
+        .card:hover .name{opacity: 1; bottom: 0; opacity: 1;}
+
+        .btn{background: #000; padding: 5px 15px; border-radius: 3px;
+        text-decoration: none; font-size: 1.15em; color: #6179bd;  background: #0f2258; top: 100px; opacity: 0;}
+        .card:hover .btn{opacity: 1; top: 0; opacity: 1;}
+    </style>
+</head>
+<body class="dflex">
+    <section class="cards dflex">
+        <div class="card dflex">
+            <h2 class="name">CyberPunk 2077</h2>
+            <img src="img/img1.jpg" alt="">
+            <a class="btn" href="#">Buy now</a>
+        </div>
+        <div class="card dflex">
+            <h2 class="name">Among Us</h2>
+            <img src="img/img2.jpg" alt="">
+            <a class="btn" href="#">Buy now</a>
+        </div>
+        <div class="card dflex">
+            <h2 class="name">Fall Guys</h2>
+            <img src="img/img3.jpeg" alt="">
+            <a class="btn"  href="#">Buy now</a>
+        </div>
+    </section>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 25,
+            speed: 1000,
+            transition: true
+        })
+    </script>
+</body>
+</html>
